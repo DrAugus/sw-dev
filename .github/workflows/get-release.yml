@@ -61,7 +61,7 @@ jobs:
           commit-message: "feat: auto down asserts"
           committer: GitHub <noreply@github.com>
           author: GitHub <noreply@github.com>
-          branch: create-pull-request/patch
+          branch: auto-pr/${{ matrix.repo }}
           base: master
           labels: |
             report
