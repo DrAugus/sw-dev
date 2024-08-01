@@ -1,16 +1,16 @@
-name: Get GitHub Release
+name: Get Asset By Link
 on:
   push:
     branches:
       - master
     paths:
-      - ".github/workflows/get-release.yml"
+      - ".github/workflows/get-by-link.yml"
   pull_request:
     types: [opened, synchronize]
     branches:
       - master
     paths:
-      - ".github/workflows/get-release.yml"
+      - ".github/workflows/get-by-link.yml"
   schedule:
     # This is run at midnight UTC on Monday
     - cron: "0 16 * * 1"
@@ -19,12 +19,11 @@ permissions:
   contents: write
 
 jobs:
-  get-release:
+  get-by-link:
     strategy:
       matrix:
-        repo:
-          - "Eugeny/tabby"
-          - "git-for-windows/git"
+        name:
+          - "ffmpeg"
     
     runs-on: ubuntu-latest
     steps:
@@ -32,7 +31,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Execute Shell
         run: |
-          ./get-release.sh ${{ matrix.repo }}
+          ./get-by-link.sh ${{ matrix.name }}
       - name: Commit files
         id: commit
         run: |
@@ -61,7 +60,7 @@ jobs:
           commit-message: "feat: auto down asserts"
           committer: GitHub <noreply@github.com>
           author: GitHub <noreply@github.com>
-          branch: auto-pr/${{ matrix.repo }}
+          branch: auto-pr/${{ matrix.name }}
           base: master
           labels: |
             report
