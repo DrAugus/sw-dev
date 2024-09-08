@@ -24,6 +24,7 @@ jobs:
       matrix:
         name:
           - "ffmpeg"
+          - "python"
     
     runs-on: ubuntu-latest
     steps:
