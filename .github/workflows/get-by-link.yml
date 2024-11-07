@@ -25,6 +25,7 @@ jobs:
         name:
           - "ffmpeg"
           - "python"
+          - "obs"
     
     runs-on: ubuntu-latest
     steps:

@@ -20,6 +20,9 @@ case $asset_name in
 "python")
     asset_url="https://www.python.org/ftp/python/3.12.6/python-3.12.6-amd64.exe"
     ;;
+"obs")
+    asset_url="https://cdn-fastly.obsproject.com/downloads/OBS-Studio-30.2.3-Windows-Installer.exe"
+    ;;
 *)
     echo "Sorry, your asset $asset_name is not listed."
     ;;
